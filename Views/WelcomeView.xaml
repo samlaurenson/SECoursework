@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="NBMMessageFiltering.Views.WelcomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NBMMessageFiltering.Views"
+             mc:Ignorable="d"
+             Background="WhiteSmoke"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBlock Text="{Binding titleTextBlock}" HorizontalAlignment="Left" Height="50" Margin="60,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="685" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Text="{Binding descriptionTextBlock}" HorizontalAlignment="Left" Height="288" Margin="60,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="665"/>
+
+    </Grid>
+</UserControl>

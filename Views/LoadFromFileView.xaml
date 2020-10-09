@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="NBMMessageFiltering.Views.LoadFromFileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NBMMessageFiltering.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="116*"/>
+            <RowDefinition Height="63*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding FileLocationLabelTextBlock}" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" Margin="1,17,0,0" Height="16"/>
+        <TextBlock Text="{Binding FileLocationTextBlock}" Grid.Column="0" VerticalAlignment="Top" Margin="97,17,0,0" HorizontalAlignment="Left" Width="677" Height="16"/>
+        <Button Content="{Binding ChangeLocationButtonContent}" Command="{Binding ChangeLocationButtonCommand}" Grid.Column="0" Margin="10,46,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110"/>
+        <Button Content="{Binding LoadFileButtonContent}" Command="{Binding LoadFileButtonCommand}" Grid.Row="0" HorizontalAlignment="Left" Margin="173,46,0,0" Width="135" Height="26" VerticalAlignment="Top"/>
+
+        <TextBlock Text="{Binding DataLoadedIntoSystem}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130"/>
+        
+        <StackPanel Margin="0,16,0,4" Grid.Row="1" CanVerticallyScroll="True" CanHorizontallyScroll="True">
+            <DataGrid ItemsSource="{Binding DataGridDisplay}" IsReadOnly="True" AutoGenerateColumns="False" Height="229">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Width="*" Binding="{Binding MsgID}"/>
+                    <DataGridTextColumn Header="Body" Width="*" Binding="{Binding MsgBody}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+
+        <TextBlock Text="{Binding LoadingDataSubtitleTextBlock}" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Height="18" Margin="1,1,0,0" Width="97"/>
+        <ScrollViewer Margin="10,19,10,8" Grid.Row="2">
+            <TextBlock Text="{Binding LoadingDataTextBlock}" Grid.Column="0" Grid.Row="2" Margin="1,24,-1,0"/>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
