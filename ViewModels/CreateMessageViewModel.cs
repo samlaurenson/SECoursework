@@ -67,6 +67,7 @@ namespace NBMMessageFiltering.ViewModels
             } else
             {
                 MessageBox.Show("Error sending message - Too many characters");
+                return;
             }
             
             ActivityTextBlock += "[Sent "+typetext+" message] [ID]: " + message.MsgID + " [Body]: " + message.MsgBody + "\n";

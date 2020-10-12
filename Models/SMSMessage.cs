@@ -8,8 +8,8 @@ namespace NBMMessageFiltering
 {
     class SMSMessage : Message
     {
-
-        private AbbreviationsStore abbreviations = AbbreviationsStore.Instance;
+        //SMS Char limit of 140 has been set in CreateMessageViewModel
+        private DataStore abbreviations = DataStore.Instance;
         public SMSMessage(string msgID, string msgBody)
         {
             this.msgID = msgID;
@@ -19,8 +19,7 @@ namespace NBMMessageFiltering
         public override string processMessage(string message)
         {
             string[] words = message.Split(' ');
-            string processedMessage = abbreviations.replaceAbbreviations(words);
-            return processedMessage;
+            return abbreviations.replaceAbbreviations(words, typeof(SMSMessage));
         }
     }
 }

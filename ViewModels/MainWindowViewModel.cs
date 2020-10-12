@@ -11,7 +11,7 @@ namespace NBMMessageFiltering.ViewModels
 {
     class MainWindowViewModel : BaseViewModel
     {
-        private AbbreviationsStore abbreviations = AbbreviationsStore.Instance;
+        private DataStore abbreviations = DataStore.Instance;
         
         public string CreateMessageButtonContent { get; private set; }
         public string LoadFromFileButtonContent { get; private set; }
