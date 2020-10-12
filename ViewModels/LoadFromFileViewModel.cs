@@ -73,19 +73,25 @@ namespace NBMMessageFiltering.ViewModels
                     while ((line=reader.ReadLine()) != null)
                     {
                         read = line.Split(',');
-                        Message message = messageFactory.categoriseMessage(read[0], read[1]); //Using message factory to take input data and create a message from it
 
-                        if (message != null && !dataStore.listOfMessages.Exists(x => x.MsgID == message.MsgID))
+                        //If item has 2 populated columns - then process the message
+                        if (read[0].Length != 0 && read[1].Length != 0)
                         {
-                            dataStore.listOfMessages.Add(message); //Storing message into list of messages
-                            LoadingDataTextBlock += "[LOADED IN MESSAGE] [ID]: " + message.MsgID + " [BODY]: " + message.MsgBody + "\n";
-                            OnChanged(nameof(LoadingDataTextBlock));
-                            DataGridDisplay.Add(message);
-                            
-                        } else
-                        {
-                            LoadingDataTextBlock += "[ALREADY LOADED DATA] [ID]: " + message.MsgID + " [BODY]: " + message.MsgBody + "\n";
-                            OnChanged(nameof(LoadingDataTextBlock));
+                            Message message = messageFactory.categoriseMessage(read[0], read[1]); //Using message factory to take input data and create a message from it
+
+                            if (message != null && !dataStore.listOfMessages.Exists(x => x.MsgID == message.MsgID))
+                            {
+                                dataStore.listOfMessages.Add(message); //Storing message into list of messages
+                                LoadingDataTextBlock += "[LOADED IN MESSAGE] [ID]: " + message.MsgID + " [BODY]: " + message.MsgBody + "\n";
+                                OnChanged(nameof(LoadingDataTextBlock));
+                                DataGridDisplay.Add(message);
+
+                            }
+                            else
+                            {
+                                LoadingDataTextBlock += "[ALREADY LOADED DATA] [ID]: " + message.MsgID + " [BODY]: " + message.MsgBody + "\n";
+                                OnChanged(nameof(LoadingDataTextBlock));
+                            }
                         }
                     }
                 }
