@@ -142,17 +142,20 @@ namespace NBMMessageFiltering.ViewModels
             }
 
             Message message = messageFactory.categoriseMessage(msgType + MessageIDTextBox, addToMessageBody + MessageBodyTextBox);
-            
-            
-            ActivityTextBlock += "[Sent "+typetext+" message] [ID]: " + message.MsgID + " [Body]: " + message.MsgBody + "\n";
-            OnChanged(nameof(ActivityTextBlock));
 
-            dataStore.listOfMessages.Add(message);
-            dataStore.saveToJSON();
+            if (!string.IsNullOrEmpty(message.MsgID) && !string.IsNullOrEmpty(message.MsgBody))
+            {
+                ActivityTextBlock += "[Sent " + typetext + " message] [ID]: " + message.MsgID + " [Body]: " + message.MsgBody + "\n";
+                OnChanged(nameof(ActivityTextBlock));
 
-            //Now add details to list of messages to be saved
-
-            ClearButtonClick(); //Used to clear the text boxes for next input
+                dataStore.listOfMessages.Add(message);
+                dataStore.saveToJSON();
+                ClearButtonClick(); //Used to clear the text boxes for next input
+            } else
+            {
+                ActivityTextBlock += "Error Sending Message.\n";
+                OnChanged(nameof(ActivityTextBlock));
+            }
         }
 
         public void ClearButtonClick()
@@ -181,6 +184,8 @@ namespace NBMMessageFiltering.ViewModels
                 OnChanged(nameof(EmailVis));
                 TwitterVis = "Hidden";
                 OnChanged(nameof(TwitterVis));
+                TwitterIDTextBox = string.Empty;
+                OnChanged(TwitterIDTextBox);
             }
             else if (MessageType.Equals("SMS Message"))
             {
@@ -188,9 +193,19 @@ namespace NBMMessageFiltering.ViewModels
                 OnChanged(nameof(EmailVis));
                 TwitterVis = "Hidden";
                 OnChanged(nameof(TwitterVis));
+                TwitterIDTextBox = string.Empty;
+                EmailSenderTextBox = string.Empty;
+                EmailSubjectTextBox = string.Empty;
+                OnChanged(TwitterIDTextBox);
+                OnChanged(EmailSenderTextBox);
+                OnChanged(EmailSubjectTextBox);
             }
             else if (MessageType.Equals("Twitter Message"))
             {
+                EmailSenderTextBox = string.Empty;
+                EmailSubjectTextBox = string.Empty;
+                OnChanged(EmailSenderTextBox);
+                OnChanged(EmailSubjectTextBox);
                 EmailVis = "Hidden";
                 OnChanged(nameof(EmailVis));
                 TwitterVis = "Visible";

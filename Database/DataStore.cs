@@ -22,6 +22,24 @@ namespace NBMMessageFiltering.Database
         public Dictionary<string, int> trendingDictionary = new Dictionary<string, int>();
         public List<string> mentionsList = new List<string>();
 
+        public List<string> urlQuarantineList = new List<string>();
+
+        public Dictionary<string, string> seriousIncidentReports = new Dictionary<string, string>();
+        public List<string> seriousIncidents = new List<string>
+        {
+            "Theft",
+            "Staff Attack",
+            "ATM Theft",
+            "Raid",
+            "Customer Attack",
+            "Staff Abuse",
+            "Bomb Threat",
+            "Terrorism",
+            "Suspicious Incident",
+            "Intelligence",
+            "Cash Loss"
+        };
+
         private DataStore() { }
 
         public static DataStore Instance
@@ -75,9 +93,14 @@ namespace NBMMessageFiltering.Database
                         {
                             trendingDictionary.Add(word, 1);
                         }
+                    } 
+                    else if (word[0].Equals('@'))
+                    {
+                        if (!mentionsList.Contains(word))
+                        {
+                            mentionsList.Add(word);
+                        }
                     }
-
-                    //Also need to check for if word starts with @ sign so can add to mentions list
                 }
 
                 int length = word.Length-1;
