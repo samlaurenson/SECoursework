@@ -15,9 +15,11 @@ namespace NBMMessageFiltering.ViewModels
         
         public string CreateMessageButtonContent { get; private set; }
         public string LoadFromFileButtonContent { get; private set; }
+        public string EndSessionButtonContent { get; private set; }
 
         public ICommand CreateMessageButtonCommand { get; private set; }
         public ICommand LoadFromFileButtonCommand { get; private set; }
+        public ICommand EndSessionButtonCommand { get; private set; }
 
         public UserControl ContentControlBinding { get; private set; }
 
@@ -27,9 +29,11 @@ namespace NBMMessageFiltering.ViewModels
 
             CreateMessageButtonContent = "Create Message";
             LoadFromFileButtonContent = "Load From File";
+            EndSessionButtonContent = "End Session";
 
             LoadFromFileButtonCommand = new RelayCommand(LoadFromFileButtonClick);
             CreateMessageButtonCommand = new RelayCommand(CreateMessageButtonClick);
+            EndSessionButtonCommand = new RelayCommand(EndSessionButtonClick);
             ContentControlBinding = new WelcomeView();
         }
 
@@ -43,6 +47,12 @@ namespace NBMMessageFiltering.ViewModels
         private void LoadFromFileButtonClick()
         {
             ContentControlBinding = new LoadFromFileView();
+            OnChanged(nameof(ContentControlBinding));
+        }
+
+        private void EndSessionButtonClick()
+        {
+            ContentControlBinding = new EndSessionView();
             OnChanged(nameof(ContentControlBinding));
         }
     }

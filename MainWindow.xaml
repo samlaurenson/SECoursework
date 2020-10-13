@@ -16,6 +16,7 @@
             <StackPanel>
                 <Button Content="{Binding CreateMessageButtonContent}" Command="{Binding CreateMessageButtonCommand}" Margin="2 2 2 10" Width="117"/>
                 <Button Content="{Binding LoadFromFileButtonContent}" Command="{Binding LoadFromFileButtonCommand}" Margin="2 2 2 10" Width="117"/>
+                <Button Content="{Binding EndSessionButtonContent}" Command="{Binding EndSessionButtonCommand}" VerticalAlignment="Bottom" Width="117"/>
             </StackPanel>
         </DockPanel>
 

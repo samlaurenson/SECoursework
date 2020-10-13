@@ -23,3 +23,5 @@ G:\Users\sam\Software Engineering Labs\Coursework\NBM Message Filtering\NBMMessa
 G:\Users\sam\Software Engineering Labs\Coursework\NBM Message Filtering\NBMMessageFiltering\obj\Debug\netcoreapp3.1\Views\CreateMessageView.baml
 G:\Users\sam\Software Engineering Labs\Coursework\NBM Message Filtering\NBMMessageFiltering\obj\Debug\netcoreapp3.1\Views\LoadFromFileView.g.cs
 G:\Users\sam\Software Engineering Labs\Coursework\NBM Message Filtering\NBMMessageFiltering\obj\Debug\netcoreapp3.1\Views\LoadFromFileView.baml
+G:\Users\sam\Software Engineering Labs\Coursework\NBM Message Filtering\NBMMessageFiltering\obj\Debug\netcoreapp3.1\Views\EndSessionView.g.cs
+G:\Users\sam\Software Engineering Labs\Coursework\NBM Message Filtering\NBMMessageFiltering\obj\Debug\netcoreapp3.1\Views\EndSessionView.baml

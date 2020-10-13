@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 G:\Users\sam\Software Engineering Labs\Coursework\NBM Message Filtering\NBMMessageFiltering\App.xaml
-4-1306278602
+5-673200172
 
-18-1642007969
+20-420096134
 1921654412462
-MainWindow.xaml;Views\CreateMessageView.xaml;Views\LoadFromFileView.xaml;Views\WelcomeView.xaml;
+MainWindow.xaml;Views\CreateMessageView.xaml;Views\EndSessionView.xaml;Views\LoadFromFileView.xaml;Views\WelcomeView.xaml;
 
 False
 

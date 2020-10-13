@@ -16,9 +16,10 @@ namespace NBMMessageFiltering.Models
             this.msgBody = processMessage(msgBody);
         }
 
+        //Might be better to add a SIR to combo box instead of hard coding in locations for items of text ???
         public override string processMessage(string message)
         {
-            string[] words = message.Split(new char[] {' ', '\n', '\r'});
+            string[] words = message.Split(new char[] {' ', '\n', '\r'}); //Could try split by line instead of word then hard coding the indexes of sort code and incidents
 
             string returnMessage = "";
 
@@ -41,11 +42,11 @@ namespace NBMMessageFiltering.Models
                             return "";
                         }
                     }
-                    else if (dataStore.seriousIncidents.Contains(words[13] + " " + words[14])) //If serious incident is only 1 word long and is in list of serious incidents then sort code and incident added to report dictionary
+                    else if (dataStore.seriousIncidents.Contains(natureOfIncident + " " + words[14])) //If serious incident is only 1 word long and is in list of serious incidents then sort code and incident added to report dictionary
                     {
                         if (!dataStore.seriousIncidentReports.ContainsKey(sortCode))
                         {
-                            dataStore.seriousIncidentReports.Add(sortCode, words[13] + " " + words[14]);
+                            dataStore.seriousIncidentReports.Add(sortCode, natureOfIncident + " " + words[14]); //might replace natureofincident with words[13] if not work
                         }
                         else
                         {
