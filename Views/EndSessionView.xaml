@@ -17,17 +17,17 @@
             <RowDefinition Height="28*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="{Binding TrendingListSubtitleTextBlock}" Grid.Row="0" Grid.Column="0" Margin="10,10,10,0" Height="21" VerticalAlignment="Top"/>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="0">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="0" Margin="0,36,0,0" HorizontalAlignment="Center" Width="267">
             <TextBlock Text="{Binding TrendingListTextBlock}" Grid.Row="0" Grid.Column="0" Margin="10,36,10,0" Height="358" VerticalAlignment="Top"/>
         </ScrollViewer>
 
         <TextBlock Text="{Binding MentionsListSubtitleTextBlock}" Grid.Row="0" Grid.Column="1" Margin="10,10,10,0" Height="21" VerticalAlignment="Top"/>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="1">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="1" Margin="0,36,0,0" HorizontalAlignment="Center" Width="266">
             <TextBlock Text="{Binding MentionListTextBlock}" Grid.Row="0" Grid.Column="1" Margin="10,36,10,0" Height="358" VerticalAlignment="Top"/>
         </ScrollViewer>
 
         <TextBlock Text="{Binding SIRListSubtitleTextBlock}" Grid.Row="0" Grid.Column="2" Margin="10,10,10,0" Height="21" VerticalAlignment="Top"/>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="2">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="2" Margin="0,36,0,0" HorizontalAlignment="Center" Width="267">
             <TextBlock Text="{Binding SIRListTextBlock}" Grid.Row="0" Grid.Column="2" Margin="10,36,10,0" Height="358" VerticalAlignment="Top"/>
         </ScrollViewer>
 

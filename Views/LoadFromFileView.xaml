@@ -22,19 +22,20 @@
         <Button Content="{Binding LoadFileButtonContent}" Command="{Binding LoadFileButtonCommand}" Grid.Row="0" HorizontalAlignment="Left" Margin="173,46,0,0" Width="135" Height="26" VerticalAlignment="Top"/>
 
         <TextBlock Text="{Binding DataLoadedIntoSystem}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130"/>
-        
-        <StackPanel Margin="0,16,0,4" Grid.Row="1" CanVerticallyScroll="True" CanHorizontallyScroll="True">
-            <DataGrid ItemsSource="{Binding DataGridDisplay}" IsReadOnly="True" AutoGenerateColumns="False" Height="229">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Width="*" Binding="{Binding MsgID}"/>
-                    <DataGridTextColumn Header="Body" Width="*" Binding="{Binding MsgBody}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
 
+        <ScrollViewer Margin="0,0,0,10" Grid.Row="1" CanContentScroll="True" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="800">
+            <StackPanel Margin="0,16,0,4" Grid.Row="1">
+                <DataGrid ItemsSource="{Binding DataGridDisplay}" IsReadOnly="True" AutoGenerateColumns="False" Height="201" Width="6300" HorizontalScrollBarVisibility="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Width="100" Binding="{Binding MsgID}"/>
+                        <DataGridTextColumn Header="Body" Width="*" Binding="{Binding MsgBody}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
 
         <TextBlock Text="{Binding LoadingDataSubtitleTextBlock}" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Height="18" Margin="1,1,0,0" Width="97"/>
-        <ScrollViewer Margin="10,19,10,8" Grid.Row="2">
+        <ScrollViewer Margin="10,19,0,8" Grid.Row="2">
             <TextBlock Text="{Binding LoadingDataTextBlock}" Grid.Column="0" Grid.Row="2" Margin="1,24,-1,0"/>
         </ScrollViewer>
     </Grid>

@@ -4,7 +4,8 @@ using System.Text;
 
 namespace NBMMessageFiltering
 {
-    abstract class Message
+    //Message types will inherit from this class.
+    public abstract class Message
     {
         protected string msgID;
         protected string msgBody;
@@ -18,6 +19,6 @@ namespace NBMMessageFiltering
             get { return msgBody; }
         }
 
-        public abstract string processMessage(string message);
+        public abstract string processMessage(string[] message);
     }
 }

@@ -1,2 +1,9 @@
-S4050345,This is a test Input
-S234234,This is another test input
+S222222222,44 12345 678987,This is a test Input. Testing abbreviations - LOL W/B,
+S999999999,101 11111 111111,This is another test input,
+E111111111,me@sender.com,Regular Email,Testing message http://www.Website.com 
+E222222222,another@email.com,SIR 28/07/2000,Sort Code: 99-88-77 Nature of Incident: Staff Attack This is the message body. This website for more http://www.exampleOfQuarantine.com
+E333333333,thisisme@email.com,Just an Email,This will be a test for messages with 1028 characters to see what the maximum length for the message body would look like. This will be a test for messages with 1028 characters to see what the maximum length for the message body would look like. This will be a test for messages with 1028 characters to see what the maximum length for the message body would look like. This will be a test for messages with 1028 characters to see what the maximum length for the message body would look like. This will be a test for messages with 1028 characters to see what the maximum length for the message body would look like. This will be a test for messages with 1028 characters to see what the maximum length for the message body would look like. This will be a test for messages with 1028 twcharacters to see what the maximum length for the message body would look like. This will be a test for messages with 1028 characters to see what the maximum length for the message body would look like. This will be a test for messages with one 
+T222222222,senderIsMe,Message body for twitter  message. Testing abbreviation - LOL W/B,
+T333333333,anotherSender,Message Body. Checking hashtags and mentions. @senderIsMe will be counted as a mention. #coursework #NapierUniversity,
+T444444444,lastSender,#coursework - the mention counter for coursework should now be 2,
+E123456789,SIRtest@email.com,SIR 12/11/2020,Sort Code: 11-22-33 Nature of Incident: Theft This is another SIR test. Should be added to serious incident list at end of session.

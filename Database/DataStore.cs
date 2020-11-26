@@ -15,7 +15,7 @@ namespace NBMMessageFiltering.Database
     {
         private static DataStore _instance;
 
-        private const string abbreviationsFile = @"..\..\..\textwords.csv";
+        private const string abbreviationsFile = @"..\..\..\..\textwords.csv";
         public Hashtable abbreviations = new Hashtable();
 
         public List<Message> listOfMessages = new List<Message>();
@@ -42,6 +42,8 @@ namespace NBMMessageFiltering.Database
 
         private DataStore() { }
 
+        //Creating the singleton if it has not been created already
+        //If it has already been created then will use the created instance
         public static DataStore Instance
         {
             get
@@ -54,11 +56,8 @@ namespace NBMMessageFiltering.Database
             }
         }
 
-        public Hashtable returnHashtable()
-        {
-            return abbreviations;
-        }
-
+        //Method to read in the abbreviations file
+        //File contains the abbreviation and what it means in English
         public void loadAbbreviations()
         {
             StreamReader reader = new StreamReader(abbreviationsFile);
@@ -72,8 +71,15 @@ namespace NBMMessageFiltering.Database
             }
         }
 
+        //Method that will replace the abbreviations in an SMS or Twitter message
+        //Method also deals with twitter hashtags and mentions and adds them to their respective lists
         public string replaceAbbreviations(string[] words, object typeOfMessage)
         {
+            if (abbreviations.Count == 0)
+            {
+                loadAbbreviations();
+            }
+
             string processedMessage = "";
 
             foreach (string word in words)

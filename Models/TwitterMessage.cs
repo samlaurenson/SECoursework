@@ -1,29 +1,62 @@
 ﻿using NBMMessageFiltering.Database;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace NBMMessageFiltering.Models
 {
-    class TwitterMessage : Message
+    //This class will be used to create Twitter messages
+    public class TwitterMessage : Message
     {
-        //3.1.3	Tweets: Textspeak abbreviations will be expanded (as in SMS messages above). Hashtags will be added to a hashtag list that will count the number of uses of each to produce a trending list. “Mentions”, i.e. embedded Twitter IDs will be added to a mentions list.
-
-        //Could use hashtable to store Key as Hashtag and value would be an integer starting from 1 and if hashtag is in hashtable then add 1 to value, if not then add to hashtable with value of 1. This will be used to produce a "trending list"
-        //"Mentions" (embedded twitter ID's) will be used to create a mentions list. Not sure if this includes the sender's @ (probably does). Mentions start with an @ followed by 15 characters. Tweets have maximum of 140 characters.
-
         private DataStore abbreviations = DataStore.Instance;
 
-        public TwitterMessage(string msgID, string msgBody)
+        public TwitterMessage(string msgID, string[] msgBody)
         {
             this.msgID = msgID;
             this.msgBody = processMessage(msgBody);
         }
 
-        public override string processMessage(string message)
+        //Method used to process Twitter messages
+        //Processed by removing abbreviations, gathering user mentions and hashtags.
+        //message array contains 2 items. Index 0 will have the username of the sender and Index 1 will have the message.
+        public override string processMessage(string[] message)
         {
-            string[] words = message.Split(' ');
-            return abbreviations.replaceAbbreviations(words, typeof(TwitterMessage));
+            if (message.Length == 0 || message == null)
+            {
+                MessageBox.Show("Invalid Input - No input");
+                return "";
+            }
+
+            //If sender does not have an @ sign in front of their user name then it will be placed for them
+            //Allows the user to input either '@username' or 'username'
+            if (!message[0][0].Equals('@'))
+            {
+                message[0] = "@" + message[0];
+            }
+
+            //setting invalid length to 16 to take into account the '@' at the start of the user name
+            if (message[0].Length > 16) //Checking that twitter ID has valid length and contains the @ symbol
+            {
+                MessageBox.Show("Invalid Twitter ID - ID exceedes length");
+                return "";
+            }
+
+            if (message[1].Length <= 140)
+            {
+                string messageAsString = message[0] + " " + message[1]; //Combining twitter ID and body of message together as twitter ID is counted as being in the body
+
+                //Splitting message body into words. Doing it as a list so can go through and remove any empty elements (in case user has entered a double space)
+                List<string> words = new List<string>(messageAsString.Split(new char[] { ' ', '\n', '\r' }));
+                words.RemoveAll(str => string.IsNullOrWhiteSpace(str)); //Removing any empty elements
+
+                return abbreviations.replaceAbbreviations(words.ToArray(), typeof(TwitterMessage));
+            } else
+            {
+                MessageBox.Show("Message length exceeded");
+                return "";
+            }
         }
     }
 }

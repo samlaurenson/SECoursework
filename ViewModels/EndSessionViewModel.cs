@@ -8,6 +8,8 @@ using System.Windows.Input;
 
 namespace NBMMessageFiltering.ViewModels
 {
+    //This is the view model class for the EndSession View
+    //Used when user presses "End session" button on the side bar
     class EndSessionViewModel
     {
         private DataStore dataStore = DataStore.Instance;
@@ -22,6 +24,7 @@ namespace NBMMessageFiltering.ViewModels
         public string CloseApplicationButtonContent { get; private set; }
         public ICommand CloseApplicationButtonCommand { get; private set; }
 
+        //Constructor setting initial values for text blocks and assigning commands to buttons
         public EndSessionViewModel()
         {
             TrendingListSubtitleTextBlock = "Trending List:";
@@ -47,6 +50,7 @@ namespace NBMMessageFiltering.ViewModels
             CloseApplicationButtonCommand = new RelayCommand(CloseApplicationButtonClick);
         }
 
+        //Method used to close the program down
         private void CloseApplicationButtonClick()
         {
             Application.Current.Shutdown();

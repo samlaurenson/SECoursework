@@ -1,10 +1,5 @@
-S2342342,TestInputs2 LOL
-S212222,WTF? LOL
-S2342342,TestInputs2 LOL
-S8989345,Another
-S9237423,YEET
-S234265,WOO
-S092374,W/B
-S108270,YOOO
-S99999,WACKO
-S1231,SMILE
+S324535465,invalid phone,Test,
+T121415161,UserName,LOL #Testing should be added as no errors in this message,
+S1,Invalid ID,Message body,
+E123123123,invalid sender,subject,body
+E321321321,sender@me.com,SIR 11/09/2020,Sort Code: 11-22-33 Nature of Incident: invalid nature Test message
